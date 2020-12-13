@@ -126,8 +126,8 @@ STATICFILES_DIRS = (
 # Email configuration
 
 EMAIL_HOST = 'smtp.qq.com'
-EMAIL_HOST_USER = "1020403567@qq.com"                 # your_account@qq.com
-EMAIL_HOST_PASSWORD = "pxqquusmxvoibcdh"                # your password 
+EMAIL_HOST_USER = "your_account@qq.com"                 # your_account@qq.com
+EMAIL_HOST_PASSWORD = ""                # your password 
 EMAIL_PORT = 25
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "1020403567@qq.com"
+DEFAULT_FROM_EMAIL = "your_account@qq.com"

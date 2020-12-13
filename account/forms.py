@@ -4,16 +4,14 @@ from django.contrib.auth.models import User
 class customerLoginForm(forms.Form):
     username = forms.CharField(
         max_length=16,
-        widget=forms.TextInput({'placeholder': "(123)456-789"})
-    )
+        widget=forms.TextInput({'placeholder': "(123)456-789"}))
     password = forms.CharField(widget=forms.PasswordInput)
 
 
 class userLoginForm(forms.Form):
     username = forms.CharField(
         max_length=64,
-        widget=forms.TextInput({'placeholder': "username"})
-    )
+        widget=forms.TextInput({'placeholder': "username"}))
     password = forms.CharField(widget=forms.PasswordInput)
 
 class userRegistraionForm(forms.ModelForm):
