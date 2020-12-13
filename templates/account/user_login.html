@@ -26,6 +26,12 @@
             <div class="col-md-6 text-left">{{ form.password }}</div>
         </div>
 
+        {% if error %}
+        <p style="color: red;">
+            <span class="glyphicon glyphicon-remove-sign"></span>
+            {{ error }}
+        </p>
+        {% endif %}
         <input type="submit" value="Login" class="btn btn-primary btn-lg" style="padding: 5px 20px; margin-right: 10px;">
     </form>
     <div style="margin-top: 10px;">

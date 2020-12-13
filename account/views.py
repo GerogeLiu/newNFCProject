@@ -39,9 +39,9 @@ def userLogin(request):
 
             if user:
                 login(request, user)
-                return redirect("account/")
+                return redirect("/")
             else:
-                return redirect("account/userLogin", error="error")
+                 return render(request, "account/customer_login.html", {"form": login_form, "error": "username or password is not correct"})
             
         else:
             return HttpResponse("Invalid login")

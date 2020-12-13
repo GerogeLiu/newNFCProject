@@ -7,7 +7,7 @@
     <h1>Register</h1>
     <p>Register to be a end-user of Newark Fulfillment Center.</p>
     <p>If you are a user, <strong><a href="{% url 'account:user_login' %}">Login</a></strong> please, or register.</p>
-    <form action="userRegister" method="post" class="form-horizontal">
+    <form action="." method="post" class="form-horizontal">
         {% csrf_token %}
         <!-- {{ form.as_p }} -->
         <div class="form-group">

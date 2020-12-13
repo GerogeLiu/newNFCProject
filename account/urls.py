@@ -7,7 +7,7 @@ urlpatterns = [
     url("^$", views.index, name='index'),
     url("^customerLogin$", views.customerLogin, name="customer_login"),
     url("^userLogin$", views.userLogin, name="user_login"),
-    url("^userRegisaaater$", views.userRegister, name="user_register"),
+    url("^userRegister$", views.userRegister, name="user_register"),
     url("^logout$", views.userLogout, name="logout"),
     url("^password-change$", auth_views.PasswordChangeView.as_view(
         success_url=reverse_lazy("account:password_change_done")), name='password_change'),
