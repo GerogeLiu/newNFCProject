@@ -7,7 +7,7 @@
     <h1>Register</h1>
     <p>Register to be a end-user of Newark Fulfillment Center.</p>
     <p>If you are a user, <strong><a href="{% url 'account:user_login' %}">Login</a></strong> please, or register.</p>
-    <form action="." method="post" class="form-horizontal">
+    <form action="/account/userRegister" method="post" class="form-horizontal">
         {% csrf_token %}
         <!-- {{ form.as_p }} -->
         <div class="form-group">
@@ -85,7 +85,7 @@
                     {% endfor %}
                 {% endif %}
             </div>
-        </div>
+        </div> 
 
         <input type="submit" value="REGISTER" class="btn btn-primary btn-lg" style="padding: 5px 30px;">
     </form>

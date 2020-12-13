@@ -59,7 +59,7 @@ def userRegister(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            return redirect("account/userLogin")
+            return redirect("/account/userLogin")
         else:
             return render(request, "account/user_register.html", {"form": user_form})
     else:
