@@ -1,0 +1,93 @@
+{% extends "account/base.html" %}
+
+{% block title %}Register user{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm" style="padding: 50px 0;box-shadow: 2px 2px 5px #333;">
+    <h1>Register</h1>
+    <p>Register to be a end-user of Newark Fulfillment Center.</p>
+    <p>If you are a user, <strong><a href="{% url 'account:user_login' %}">Login</a></strong> please, or register.</p>
+    <form action="userRegister" method="post" class="form-horizontal">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label" style="color: red;;">
+                <span class="glyphicon glyphicon-user"></span>
+                Username:</label>
+            <div class="col-md-6 text-left">
+                {{ form.username }}
+                {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                        <span class="glyphicon glyphicon-remove-sign" style="color: red;"></span>
+                        <span>{{ error|escape }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ from.email.errors }}
+            <label for="{{ form.email.id_for_label }}" class="col-md-5 control-label" style="color: green;;">
+                <span class="glyphicon glyphicon-envelope"></span>
+                Email:</label>
+            <div class="col-md-6 text-left">
+                {{ form.email }}
+                {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                        <span class="glyphicon glyphicon-remove-sign" style="color: red;"></span>
+                        <span>{{ error|escape }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.first_name.id_for_label }}" class="col-md-5 control-label" style="color: green;;">
+                <span class="glyphicon glyphicon-envelope"></span>
+                First Name:</label>
+            <div class="col-md-6 text-left"> {{ form.first_name }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.last_name.id_for_label }}" class="col-md-5 control-label" style="color: green;;">
+                <span class="glyphicon glyphicon-envelope"></span>
+                Last Name:</label>
+            <div class="col-md-6 text-left">{{ form.last_name }}</div>
+        </div>
+
+        <div class="form-group">
+            {{ form.password.errors }}
+            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color: blue;;">
+                <span class="glyphicon glyphicon-eye-close"></span>
+                Password:</label>
+            <div class="col-md-6 text-left">
+                {{ form.password }}
+                {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <span class="glyphicon glyphicon-remove-sign" style="color: red;"></span>
+                        <span>{{ error|escape }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form.password2.errors }}
+            <label for="{{ form.password_again.id_for_label }}" class="col-md-5 control-label" style="color: purple;;">
+                <span class="glyphicon glyphicon-eye-close"></span>
+                Confirm password:</label>
+            <div class="col-md-6 text-left">
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    {% for error in form.password2.errors %}
+                        <span class="glyphicon glyphicon-remove-sign" style="color: red;"></span>
+                        <span>{{ error|escape }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <input type="submit" value="REGISTER" class="btn btn-primary btn-lg" style="padding: 5px 30px;">
+    </form>
+</div>
+{% endblock %}

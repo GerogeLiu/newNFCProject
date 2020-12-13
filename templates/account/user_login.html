@@ -1,0 +1,37 @@
+{% extends "account/base.html" %}
+
+{% block title %}User Login{% endblock %}
+
+
+{% block content %}
+<div class="row text-center vertical-middle-sm" style="padding: 50px 0;box-shadow: 2px 2px 5px #333;">
+    <h1>User Login</h1>
+    <p>Input your username and password</p>
+    <form action="userLogin" method="post" class="form-horizontal">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}" 
+            class="col-md-5 control-label" style="color: red;;">
+            <span class="glyphicon glyphicon-user"></span>
+            Username</label>
+            <div class="col-md-6 text-left">{{ form.username }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}" 
+            class="col-md-5 control-label" style="color: blue;;">
+            <span class="glyphicon glyphicon-floppy-open"></span>
+            Password</label>
+            <div class="col-md-6 text-left">{{ form.password }}</div>
+        </div>
+
+        <input type="submit" value="Login" class="btn btn-primary btn-lg" style="padding: 5px 20px; margin-right: 10px;">
+    </form>
+    <div style="margin-top: 10px;">
+        <span style="margin-right: 10px;"><a href="{% url 'account:user_register' %}">no account?</a></span>
+        <span style="margin-left: 20px;"><a href="{% url 'account:user_register' %}">Forget password?</a></span>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">
+                <img src="{% static '/images/logo.png' %}" alt="logo" width="100px">
+            </a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav" role="navigation">
+                <li><a href="{% url 'account:index' %}">Newark Fulfillment Center</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li style="padding: 8px 20px 0 5px;">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" 
+                            data-toggle="dropdown" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+                            Welcome,
+                            <span style="color:black; font-weight: 600;">{{ user.username }}</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="{% url 'account:logout' %}">Logout</a></li>
+                            <li><a href="{% url 'account:password_change' %}">change password</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                <li style="padding-top: 5px;">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" 
+                            data-toggle="dropdown" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+                            Registration
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li class="disabled"><a href="#">Customer Registration</a></li>
+                            <li><a href="{% url 'account:user_register' %}">User Registration</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li style="padding: 5px 20px 0 5px;">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" 
+                            data-toggle="dropdown" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+                            Login
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="{% url 'account:customer_login' %}">Customer Signin</a></li>
+                            <li><a href="{% url 'account:user_login' %}">User Signin</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>

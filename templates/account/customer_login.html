@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+
+{% block title %}Customer Login{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>Customer Login</h1>
+    <p>Input your username and password</p>
+    <p style="color: green;">If you log in for the first time,
+        please change your password in time</p>
+    <div class="form-group">
+        <form action="customerLogin" method="post" class="form-horizontal">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if error %}
+            <p style="color: red;">
+                <span class="glyphicon glyphicon-remove-sign"></span>
+                {{ error }}
+            </p>
+            {% endif %}
+            <p style="margin-left: 20px;">
+                <input type="submit" class="btn btn-primary" value="Login" style="width: 80px;">
+            </p>
+            <p><a href="{% url 'account:password_reset' %}">Forget Password?</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
