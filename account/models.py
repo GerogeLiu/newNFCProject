@@ -14,10 +14,10 @@ class CustomerProfile(models.Model):
 
 
 class EndUserProfile(models.Model):
-    endUser = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     birth = models.DateField(blank=True, null=True)
     phone = models.CharField(max_length=20, null=True)
-    address = models.TextField()
+    address = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return 'End User {}'.format(self.endUser.username)
@@ -28,6 +28,7 @@ class EndUserInfo(models.Model):
     company = models.CharField(max_length=100, blank=True)
     profession = models.CharField(max_length=100, blank=True)
     aboutme = models.TextField(blank=True)
+    photo = models.ImageField(blank=True)
 
     def __str__(self):
         return "user:{}".format(self.user.username)

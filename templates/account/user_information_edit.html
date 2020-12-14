@@ -1,0 +1,58 @@
+{% extends "account/base.html" %}
+{% block title %}edit my information{% endblock %}
+
+{% block content%}
+<div class="row text-center vertical-middle-sm">
+    <h1>Edit My information</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/account/edit-user-information" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>userName:</span></div>
+                    <div class="col-md-8 text-left">{{ user.username }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>Email:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ user_form.email }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>Birth: </span></div>
+                    <div class="col-md-8 text-left"><span>{{ userprofile_form.birth }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>Phone:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ userprofile_form.phone }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>Graduated School:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ userinfo_form.school }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>company:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ userinfo_form.company }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>profession:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ userinfo_form.profession }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>address:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ userprofile_form.address }}</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right"><span>AboutMe:</span></div>
+                    <div class="col-md-8 text-left"><span>{{ userinfo_form.aboutme }}</span></div>
+                </div>
+                <div class="row">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Submit">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <p>Picture</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
